@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<title>Videolar — Mavi Travertin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.video-grid-main{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:900px){.video-grid-main{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.video-grid-main{grid-template-columns:1fr;max-width:420px;margin:0 auto;}}
+</style>
+</head>
+<body>
+<div id="site-header" data-page="videos.html"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-tag">Media</div>
+    <h1 class="page-hero-title">KOMPANIYA <span>VIDEOLARI</span></h1>
+    <p class="page-hero-sub">Ishlab chiqarish jarayoni, mahsulotlar va kompaniya hayotidan qisqa videolar</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="video-grid-main">
+
+      <!-- VIDEO 1: thumbnail — images/video-thumb-1.jpg (400×225px, 16:9) -->
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <img src="images/video-thumb-1.jpg" alt="Zavod ko'rinishi" onerror="this.style.display='none'"/>
+          <div class="vid-ph">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10,8 16,12 10,16"/></svg>
+            <span>Video #1 thumbnail<br/>400×225 px</span>
+          </div>
+          <button class="play-btn" onclick="playVideo(this,'images/video1.mp4')">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+        </div>
+        <div class="video-info"><div class="video-title">Zavodimiz haqida</div><div class="video-dur">🎬 2:35 · images/video1.mp4</div></div>
+      </div>
+
+      <!-- VIDEO 2 -->
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <img src="images/video-thumb-2.jpg" alt="Ishlab chiqarish" onerror="this.style.display='none'"/>
+          <div class="vid-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10,8 16,12 10,16"/></svg><span>Video #2 thumbnail<br/>400×225 px</span></div>
+          <button class="play-btn" onclick="playVideo(this,'images/video2.mp4')"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+        </div>
+        <div class="video-info"><div class="video-title">Ishlab chiqarish jarayoni</div><div class="video-dur">🎬 3:14 · images/video2.mp4</div></div>
+      </div>
+
+      <!-- VIDEO 3 -->
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <img src="images/video-thumb-3.jpg" alt="Sifat nazorati" onerror="this.style.display='none'"/>
+          <div class="vid-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10,8 16,12 10,16"/></svg><span>Video #3 thumbnail<br/>400×225 px</span></div>
+          <button class="play-btn" onclick="playVideo(this,'images/video3.mp4')"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+        </div>
+        <div class="video-info"><div class="video-title">Sifat nazorati</div><div class="video-dur">🎬 1:58 · images/video3.mp4</div></div>
+      </div>
+
+      <!-- VIDEO 4 -->
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <img src="images/video-thumb-4.jpg" alt="Yetkazib berish" onerror="this.style.display='none'"/>
+          <div class="vid-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10,8 16,12 10,16"/></svg><span>Video #4 thumbnail<br/>400×225 px</span></div>
+          <button class="play-btn" onclick="playVideo(this,'images/video4.mp4')"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+        </div>
+        <div class="video-info"><div class="video-title">Yetkazib berish xizmati</div><div class="video-dur">🎬 2:10 · images/video4.mp4</div></div>
+      </div>
+
+      <!-- VIDEO 5 -->
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <img src="images/video-thumb-5.jpg" alt="Mijozlar fikri" onerror="this.style.display='none'"/>
+          <div class="vid-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10,8 16,12 10,16"/></svg><span>Video #5 thumbnail<br/>400×225 px</span></div>
+          <button class="play-btn" onclick="playVideo(this,'images/video5.mp4')"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+        </div>
+        <div class="video-info"><div class="video-title">Mijozlar fikri</div><div class="video-dur">🎬 1:45 · images/video5.mp4</div></div>
+      </div>
+
+      <!-- VIDEO 6 -->
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <img src="images/video-thumb-6.jpg" alt="Travertin qazib olish" onerror="this.style.display='none'"/>
+          <div class="vid-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10,8 16,12 10,16"/></svg><span>Video #6 thumbnail<br/>400×225 px</span></div>
+          <button class="play-btn" onclick="playVideo(this,'images/video6.mp4')"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+        </div>
+        <div class="video-info"><div class="video-title">Travertin qazib olish</div><div class="video-dur">🎬 3:30 · images/video6.mp4</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/products.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

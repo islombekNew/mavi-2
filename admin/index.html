@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Admin — Mavi Travertin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+
+    <!-- LOGIN -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-box">
+            <div class="login-logo">
+                <img src="../logo.jpg" alt="Mavi" class="login-logo-img" onerror="this.style.display='none'" />
+                <div>
+                    <div class="login-brand">MAVI <span>TRAVERTIN</span></div>
+                    <div class="login-sub">Admin Panel</div>
+                </div>
+            </div>
+            <div class="lf-group">
+                <label class="lf-label">Login</label>
+                <input type="text" class="lf-input" id="loginUser" placeholder="admin" autocomplete="username" />
+            </div>
+            <div class="lf-group">
+                <label class="lf-label">Parol</label>
+                <div class="lf-pass-wrap">
+                    <input type="password" class="lf-input" id="loginPass" placeholder="••••••••" autocomplete="current-password" />
+                    <button class="lf-eye" onclick="togglePass()" type="button">👁</button>
+                </div>
+            </div>
+            <div class="lf-error" id="loginError"></div>
+            <button class="lf-btn" id="loginBtn" onclick="doLogin()">Kirish →</button>
+            <div class="lf-demo">Login: <strong>admin</strong> · Parol: <strong>Mavi@2024#Secure</strong></div>
+        </div>
+    </div>
+
+    <!-- ADMIN APP -->
+    <div id="adminApp" class="admin-app" style="display:none;">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-head">
+                <img src="../logo.jpg" alt="" class="sb-logo-img" onerror="this.style.display='none'" />
+                <div>
+                    <div class="sb-brand">MAVI <span>TRAVERTIN</span></div>
+                    <div class="sb-role">Administrator</div>
+                </div>
+                <button class="sb-close-btn" onclick="toggleSidebar()">✕</button>
+            </div>
+            <nav class="sb-nav">
+                <div class="sb-group-label">Asosiy</div>
+                <button class="sb-link active" onclick="switchTab(this,'dashboard')"><span class="sb-icon">📊</span>Dashboard</button>
+                <button class="sb-link" onclick="switchTab(this,'orders')"><span class="sb-icon">📦</span>Buyurtmalar<span class="sb-badge" id="badge-orders"></span></button>
+                <button class="sb-link" onclick="switchTab(this,'messages')"><span class="sb-icon">💬</span>Xabarlar<span class="sb-badge" id="badge-msgs"></span></button>
+                <div class="sb-group-label">Boshqaruv</div>
+                <button class="sb-link" onclick="switchTab(this,'products')"><span class="sb-icon">🪨</span>Mahsulotlar</button>
+                <button class="sb-link" onclick="switchTab(this,'stats')"><span class="sb-icon">📈</span>Statistika</button>
+                <div class="sb-group-label">Havolalar</div>
+                <button class="sb-link" onclick="window.open('/','_blank')"><span class="sb-icon">🌐</span>Saytni ko'rish</button>
+                <button class="sb-link logout" onclick="doLogout()"><span class="sb-icon">🚪</span>Chiqish</button>
+            </nav>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="admin-main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">
+          <span></span><span></span><span></span>
+        </button>
+                    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+                </div>
+                <div class="topbar-right">
+                    <div class="topbar-time" id="topbarTime"></div>
+                    <div id="modeLabel" style="font-size:11px;font-weight:600;color:rgba(139,115,85,0.6);padding:4px 8px;border-radius:4px;"></div>
+                    <button class="refresh-btn" onclick="loadAll()" title="Yangilash">🔄</button>
+                    <div class="topbar-avatar">A</div>
+                </div>
+            </header>
+
+            <div class="content-area">
+
+                <!-- DASHBOARD -->
+                <div class="tab-pane active" id="tab-dashboard">
+                    <div class="page-head">
+                        <h1 class="page-title">Dashboard</h1>
+                        <button class="refresh-btn" onclick="loadAll()">🔄 Yangilash</button>
+                    </div>
+                    <div class="ds-cards">
+                        <div class="ds-card rust">
+                            <div class="ds-card-label">Yangi buyurtmalar</div>
+                            <div class="ds-card-num" id="ds-new-orders">—</div>
+                            <div class="ds-card-sub">Ko'rilmagan</div>
+                        </div>
+                        <div class="ds-card brand">
+                            <div class="ds-card-label">Jami buyurtmalar</div>
+                            <div class="ds-card-num" id="ds-total-orders">—</div>
+                            <div class="ds-card-sub">Barcha vaqt</div>
+                        </div>
+                        <div class="ds-card sand">
+                            <div class="ds-card-label">O'qilmagan xabarlar</div>
+                            <div class="ds-card-num" id="ds-new-msgs">—</div>
+                            <div class="ds-card-sub">Yangi</div>
+                        </div>
+                        <div class="ds-card dark">
+                            <div class="ds-card-label">Jami xabarlar</div>
+                            <div class="ds-card-num" id="ds-total-msgs">—</div>
+                            <div class="ds-card-sub">Barcha vaqt</div>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="ac-head">
+                            <div class="ac-title">📦 Oxirgi buyurtmalar</div>
+                            <button class="ac-btn" onclick="switchTab(document.querySelector('[onclick*=orders]'),'orders')">Barchasini ko'rish →</button>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Mijoz</th>
+                                        <th>Mahsulot</th>
+                                        <th>Miqdor</th>
+                                        <th>Telefon</th>
+                                        <th>Holat</th>
+                                        <th>Vaqt</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dash-orders-body">
+                                    <tr>
+                                        <td colspan="7" class="empty-row">Yuklanmoqda...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="admin-card mt-20">
+                        <div class="ac-head">
+                            <div class="ac-title">💬 Oxirgi xabarlar</div>
+                            <button class="ac-btn" onclick="switchTab(document.querySelector('[onclick*=messages]'),'messages')">Barchasini ko'rish →</button>
+                        </div>
+                        <div id="dash-msgs-list" class="msg-list">
+                            <div class="empty-row" style="padding:20px;text-align:center;">Yuklanmoqda...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ORDERS -->
+                <div class="tab-pane" id="tab-orders">
+                    <div class="page-head">
+                        <h1 class="page-title">📦 Buyurtmalar</h1>
+                        <div style="display:flex;gap:10px;align-items:center;">
+                            <input type="text" class="search-input" id="orderSearch" placeholder="Qidirish..." oninput="filterOrders()" />
+                            <button class="refresh-btn" onclick="loadAll()">🔄</button>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Ism</th>
+                                        <th>Telefon</th>
+                                        <th>Mahsulot</th>
+                                        <th>Narx</th>
+                                        <th>Miqdor</th>
+                                        <th>Izoh</th>
+                                        <th>Holat</th>
+                                        <th>Sana</th>
+                                        <th>Amal</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="all-orders-body">
+                                    <tr>
+                                        <td colspan="10" class="empty-row">Yuklanmoqda...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MESSAGES -->
+                <div class="tab-pane" id="tab-messages">
+                    <div class="page-head">
+                        <h1 class="page-title">💬 Xabarlar</h1>
+                        <div style="display:flex;gap:10px;align-items:center;">
+                            <input type="text" class="search-input" id="msgSearch" placeholder="Qidirish..." oninput="filterMsgs()" />
+                            <button class="refresh-btn" onclick="loadAll()">🔄</button>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div id="all-msgs-list" class="msg-list">
+                            <div class="empty-row" style="padding:24px;text-align:center;">Yuklanmoqda...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTS -->
+                <div class="tab-pane" id="tab-products">
+                    <div class="page-head">
+                        <h1 class="page-title">🪨 Mahsulotlar</h1>
+                    </div>
+                    <div class="admin-card">
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nomi</th>
+                                        <th>Kategoriya</th>
+                                        <th>Naqt narx</th>
+                                        <th>Shot narx</th>
+                                        <th>Holat</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATS -->
+                <div class="tab-pane" id="tab-stats">
+                    <div class="page-head">
+                        <h1 class="page-title">📈 Statistika</h1>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="admin-card">
+                            <div class="ac-head">
+                                <div class="ac-title">Kategoriya bo'yicha</div>
+                            </div>
+                            <div id="stats-cat" class="stats-bars"></div>
+                        </div>
+                        <div class="admin-card">
+                            <div class="ac-head">
+                                <div class="ac-title">Holat taqsimoti</div>
+                            </div>
+                            <div id="stats-status" class="stats-bars"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MESSAGE MODAL -->
+    <div class="modal-overlay" id="msgDetailModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal('msgDetailModal')">✕</button>
+            <div class="modal-head">
+                <div class="msg-num-circle brand" id="md-num">1</div>
+                <div>
+                    <div class="modal-sender" id="md-sender"></div>
+                    <div class="modal-contact" id="md-contact"></div>
+                </div>
+            </div>
+            <div class="modal-msg-body" id="md-body"></div>
+            <div class="modal-meta" id="md-meta"></div>
+            <div class="modal-actions">
+                <a class="act-btn call" id="md-call" href="#">📞 Qo'ng'iroq</a>
+                <button class="act-btn close-btn" onclick="closeModal('msgDetailModal')">Yopish</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ORDER MODAL -->
+    <div class="modal-overlay" id="orderDetailModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal('orderDetailModal')">✕</button>
+            <div class="modal-head">
+                <div class="msg-num-circle rust" id="od-num">1</div>
+                <div>
+                    <div class="modal-sender" id="od-sender"></div>
+                    <div class="modal-contact" id="od-contact"></div>
+                </div>
+            </div>
+            <div class="order-detail-grid" id="od-grid"></div>
+            <div class="modal-actions">
+                <a class="act-btn call" id="od-call" href="#">📞 Qo'ng'iroq</a>
+                <button class="act-btn done-btn" id="od-done-btn" onclick="markOrderDone()">✓ Bajarildi</button>
+                <button class="act-btn close-btn" onclick="closeModal('orderDetailModal')">Yopish</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/products.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

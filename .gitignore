@@ -1,0 +1,14 @@
+# Muhim fayllar — GitHubga yuklamang
+.env
+db/orders.json
+db/messages.json
+
+# Node — BU ENG MUHIM!
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+*.log

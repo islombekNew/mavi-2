@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <title>Mavi Travertin — Sifat kafolat kaliti!</title>
+    <meta name="description" content="Mavi Travertin — Namangandan tabiiy tosh va premium qurilish materiallari. Sifat kafolat kaliti!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* HOME ONLY */
+        
+        .hero {
+            min-height: 100svh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 68px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(28, 26, 24, 0.97) 0%, rgba(28, 26, 24, 0.85) 45%, rgba(26, 74, 140, 0.6) 100%);
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(218, 120, 89, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(218, 120, 89, 0.05) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            right: -80px;
+            top: -80px;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(26, 74, 140, 0.28) 0%, transparent 70%);
+        }
+        
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 20px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(218, 120, 89, 0.12);
+            border: 1px solid rgba(218, 120, 89, 0.35);
+            color: var(--rust);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.6s ease both;
+        }
+        
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--rust);
+            border-radius: 50%;
+            animation: pulseDot 2s infinite;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(52px, 8vw, 100px);
+            line-height: 0.92;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+            animation: fadeUp 0.7s 0.1s ease both;
+        }
+        
+        .hero-sub {
+            font-size: 15px;
+            color: rgba(245, 240, 235, 0.65);
+            max-width: 400px;
+            margin-bottom: 32px;
+            line-height: 1.75;
+            animation: fadeUp 0.7s 0.2s ease both;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.7s 0.3s ease both;
+        }
+        
+        .hero-visual {
+            position: relative;
+            animation: fadeUp 0.8s 0.25s ease both;
+        }
+        
+        .hero-img-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 4/4.3;
+            max-width: 500px;
+            margin-left: auto;
+            border: 1px solid rgba(218, 120, 89, 0.2);
+            box-shadow: 0 12px 48px rgba(28, 26, 24, 0.18);
+            background: linear-gradient(135deg, #2a2624, #1a2535);
+        }
+        
+        .hero-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        
+        .hero-img-frame:hover img {
+            transform: scale(1.04);
+        }
+        
+        .hero-img-ph {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: rgba(245, 240, 235, 0.25);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .hero-img-ph svg {
+            opacity: 0.2;
+        }
+        
+        .hero-img-ph strong {
+            color: var(--rust);
+            opacity: 0.7;
+            font-size: 13px;
+        }
+        
+        .hero-img-ph small {
+            font-size: 10px;
+            opacity: 0.4;
+            font-family: monospace;
+        }
+        
+        .stat-badge {
+            position: absolute;
+            background: rgba(28, 26, 24, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(218, 120, 89, 0.3);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        
+        .stat-badge.br {
+            bottom: 28px;
+            left: -16px;
+        }
+        
+        .stat-badge.tr {
+            top: 20px;
+            right: -16px;
+        }
+        
+        .sb-num {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 26px;
+            color: var(--rust);
+            line-height: 1;
+        }
+        
+        .sb-lbl {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(245, 240, 235, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 2px;
+        }
+        /* PREVIEW GRIDS */
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        
+        .preview-more {
+            text-align: center;
+            margin-top: 32px;
+        }
+        /* ABOUT MINI */
+        
+        .about-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .about-img-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 5/4;
+            background: linear-gradient(135deg, #EDE8E2, #D5CBBC);
+        }
+        
+        .about-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-img-ph {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(92, 82, 72, 0.4);
+            font-size: 11px;
+            text-align: center;
+            padding: 16px;
+        }
+        
+        .about-img-ph strong {
+            color: var(--rust-deep);
+            opacity: 0.7;
+        }
+        
+        .about-img-tag {
+            position: absolute;
+            bottom: -10px;
+            right: 16px;
+            background: var(--rust);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 7px 14px;
+            border-radius: 6px;
+            z-index: 2;
+        }
+        
+        .about-feats {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-top: 18px;
+        }
+        
+        .about-feat {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .feat-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--rust);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .about-text p {
+            font-size: 15px;
+            color: var(--concrete);
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+        
+        .about-text p em {
+            color: var(--rust);
+            font-style: normal;
+            font-weight: 600;
+        }
+        
+        @media(max-width:900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 48px 20px 40px;
+            }
+            .hero-visual {
+                display: none;
+            }
+            .hero-title {
+                font-size: clamp(48px, 13vw, 72px);
+            }
+            .about-mini {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:480px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-btns {
+                flex-direction: column;
+            }
+            .hero-btns a {
+                width: 100%;
+                justify-content: center;
+            }
+            .stat-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-header" data-page="index.html"></div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+            <div>
+                <div class="hero-badge"><span class="badge-dot"></span>Sifat kafolat kaliti!</div>
+                <h1 class="hero-title" style="color:#ffffff;">Oddiylikdan<br/><span style="color:var(--brand-light);">mahobatga</span><br/><span style="color:var(--rust);">bir qadam</span></h1>
+                <p class="hero-sub">Mavi Travertin — Namangandan butun O'zbekistonga tabiiy tosh va premium qurilish materiallari. <em style="color:var(--rust);font-style:normal;">Timeless Beauty.</em></p>
+                <div class="hero-btns">
+                    <!-- <a href="shop.html" class="btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>                        Do'kon
+                    </a> -->
+                    <a href="products.html" class="btn-outline">Mahsulotlar →</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-img-frame">
+                    <!-- HERO RASM: images/hero-main.jpg (500×540px) -->
+                    <img src="images/photos/photo_2026-05-31_12-45-13.jpg" alt="Mavi Travertin" onerror="this.style.display='none'" />
+                    <div class="hero-img-ph">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+
+                    </div>
+                    <div class="stat-badge br"><span class="sb-num">20+</span><span class="sb-lbl">Mahsulot turi</span></div>
+                    <div class="stat-badge tr"><span class="sb-num">7+</span><span class="sb-lbl">Yil tajriba</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-num">20+</div>
+                <div class="stat-lbl">Mahsulot turi</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">7+</div>
+                <div class="stat-lbl">Yil tajriba</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">1200+</div>
+                <div class="stat-lbl">Mijozlar</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">24/7</div>
+                <div class="stat-lbl">Qo'llab-quvvatlash</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAHSULOTLAR PREVIEW (3 ta, desktop; 2 ta, telefon) -->
+    <section style="background:var(--dark);padding:80px 0;">
+        <div class="container">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:14px;">
+                <div>
+                    <div class="section-tag light">Mahsulotlar</div>
+                    <h2 class="section-title light">MASHHUR <span style="color:var(--rust);">MAHSULOTLAR</span></h2>
+                </div>
+                <a href="products.html" class="btn-ghost">Barchasini ko'rish →</a>
+            </div>
+            <div class="preview-grid" id="homeProductsGrid"></div>
+            <!-- <div class="preview-more"><a href="shop.html" class="btn-primary" style="margin-top:8px;">Do'konni ko'rish — barcha 20 mahsulot →</a></div> -->
+        </div>
+    </section>
+
+    <!-- BIZ HAQIMIZDA MINI -->
+    <section class="section" style="background:var(--bg);">
+        <div class="container">
+            <div class="about-mini">
+                <div class="about-img-frame">
+                    <!-- ABOUT RASM: images/about.jpg (600×480px) -->
+                    <img src="images/photos/photo_2026-05-31_12-50-18.jpg" alt="Mavi zavod" onerror="this.style.display='none'" />
+                    <div class="about-img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>
+                    <div class="about-img-tag">2019 yildan</div>
+                </div>
+                <div class="about-text">
+                    <div class="section-tag">Biz haqimizda</div>
+                    <h2 class="section-title">MAVI — <span class="c-rust"></span><br/>Oqsaroy Grandmix <span class="c-brand"> MCHJ</span></h2>
+                    <p>Oqsaroy Grandmix MCHJ — Namanganda tumani Shorqorgon shaharchasi Ko'l boyi MFY da joylashgan, <em>Sifat kafolat kaliti!</em> shiori ostida faoliyat yurituvchi kompaniya.</p>
+                    <p>TRAVERTIN ,PRAYMER , TRAVERTIN LAK,JEMCHUG LAK,ASTAR GRUNTOVKA, RODBAN, KAFEL KLEY, PENA SUVOQ, POLISTRO TYAGA, POK TYAGA, GLAT, VODAEMULSIYA MOYUSHAYA, OTACHENTO TOSH SZ , OTACHENTO TOSHLI, KRASKA PF-115,PF-266 tayyor holda O'zbekiston
+                        barcha hududlariga yetkazib beramiz,Vodiy bo'ylab yetkazib berish bepul</p>
+                    <div class="about-feats">
+                        <div class="about-feat">
+                            <div class="feat-dot"></div>ISO 9001 sertifikatlangan ishlab chiqarish</div>
+                        <div class="about-feat">
+                            <div class="feat-dot"></div>O'z qazib olish va qayta ishlash zavodi</div>
+                        <div class="about-feat">
+                            <div class="feat-dot"></div>Butun O'zbekistonga yetkazib berish</div>
+                    </div>
+                    <a href="about.html" class="btn-primary" style="margin-top:24px;display:inline-flex;">Batafsil →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section style="background:var(--dark);padding:60px 0;">
+        <div class="container" style="text-align:center;">
+            <h2 class="section-title light" style="margin-bottom:10px;">BOG'LANISH</h2>
+            <p style="color:rgba(245,240,235,0.5);margin-bottom:28px;font-size:15px;">⏰ Ish vaqti: 7:30 dan 21:30 gacha · 📍 Namangan tuman, Sho'rqo'rg'on</p>
+            <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                <a href="tel:+998932111000" class="btn-primary">📞 +998 93 211 10 00</a>
+                <a href="tel:+998339661111" class="btn-outline">📞 +998 33 966 11 11</a>
+                <a href="contact.html" class="btn-ghost">Xabar yuborish →</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <!-- ORDER MODAL -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeOrderModal()">✕</button>
+            <h3 class="modal-title">BUYURTMA</h3>
+            <p class="modal-product" id="modalProductName"></p>
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="modal-qty-row">
+                    <button type="button" class="qty-btn" onclick="changeQty(-1)">−</button>
+                    <input type="number" class="qty-input" id="qtyInput" value="1" min="1" oninput="updateTotal()" />
+                    <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
+                    <span class="qty-unit" id="qtyUnit">m²</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label dark">Ismingiz <span class="req">*</span></label><input type="text" class="form-input light" name="name" placeholder="To'liq ismingiz" required/></div>
+                    <div class="form-group"><label class="form-label dark">Telefon <span class="req">*</span></label><input type="tel" class="form-input light" name="phone" placeholder="+998 XX XXX XX XX" required/></div>
+                </div>
+                <div class="form-group"><label class="form-label dark">Izoh</label><textarea class="form-textarea light" name="note" placeholder="Qo'shimcha ma'lumot..." style="min-height:70px;"></textarea></div>
+                <div class="modal-btns">
+                    <button type="button" class="btn-cancel" onclick="closeOrderModal()">Bekor</button>
+                    <button type="submit" class="btn-primary">✓ Buyurtma berish</button>
+                </div>
+                <div class="form-success" id="orderSuccess">✅ Buyurtma qabul qilindi! Tez orada bog'lanamiz.</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Home page: 3 ta preview (desktop), responsive orqali 2 ta ko'rinadi CSS bilan
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('homeProductsGrid');
+            if (!grid) return;
+            // 3 ta mashhur mahsulot
+            const featured = [PRODUCTS[0], PRODUCTS[6], PRODUCTS[10]];
+            grid.innerHTML = featured.map(p => shopCardHtml(p)).join('');
+            initReveal();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <title>Bog'lanish — Mavi Travertin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+        
+        .contact-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 52px);
+            color: var(--white);
+            line-height: 1.05;
+            margin-bottom: 14px;
+        }
+        
+        .contact-desc {
+            font-size: 14px;
+            color: rgba(245, 240, 235, 0.55);
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+        
+        .work-info {
+            background: rgba(218, 120, 89, 0.1);
+            border: 1px solid rgba(218, 120, 89, 0.25);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .work-info-text strong {
+            display: block;
+            font-size: 14px;
+            color: var(--white);
+            font-weight: 700;
+        }
+        
+        .work-info-text span {
+            font-size: 12px;
+            color: rgba(245, 240, 235, 0.5);
+        }
+        
+        .contact-form-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(218, 120, 89, 0.15);
+            border-radius: 20px;
+            padding: 28px;
+        }
+        
+        .form-title-box {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-header" data-page="contact.html"></div>
+
+    <div class="page-hero">
+        <div class="container">
+            <div class="page-hero-tag">Aloqa</div>
+            <h1 class="page-hero-title">BOG'<span>LANISH</span></h1>
+            <p class="page-hero-sub">
+                Savol, taklif yoki buyurtma uchun istalgan qulay yo'l orqali murojaat qiling
+            </p>
+        </div>
+    </div>
+
+    <section class="section" style="background: var(--dark)">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2 class="contact-title">
+                        BIZGA <span style="color: var(--rust)">MUROJAAT</span><br />QILING
+                    </h2>
+                    <p class="contact-desc">
+                        Travertin, marmar, granit va boshqa qurilish materiallari bo'yicha savollaringizni bering. Tez javob beramiz!
+                    </p>
+
+                    <div class="work-info">
+                        <span style="font-size: 24px">⏰</span>
+                        <div class="work-info-text">
+                            <strong>Ish vaqti: 7:30 dan 21:30 gacha</strong>
+                            <span>Dushanba — Shanba · Yakshanba: 9:00 — 18:00</span>
+                        </div>
+                    </div>
+
+                    <div class="clinks">
+                        <!-- TELEFON 1 — bosganda faqat "Mavi" nomi saqlanadi -->
+                        <a href="tel:+998932111000" class="clink">
+                            <div class="clink-icon" style="background: rgba(218, 120, 89, 0.15)">
+                                📞
+                            </div>
+                            <div class="clink-body">
+                                <strong>+998 93 211 10 00</strong>
+                                <span>Asosiy telefon — kontakt "Mavi" bo'lib saqlanadi</span>
+                            </div>
+                        </a>
+
+                        <!-- TELEFON 2 -->
+                        <a href="tel:+998339661111" class="clink">
+                            <div class="clink-icon" style="background: rgba(218, 120, 89, 0.12)">
+                                📱
+                            </div>
+                            <div class="clink-body">
+                                <strong>+998 33 966 11 11</strong>
+                                <span>Qo'shimcha telefon — kontakt "Mavi" bo'lib saqlanadi</span
+                  >
+                </div>
+              </a>
+
+              <!-- INSTAGRAM -->
+              <a
+                href="https://instagram.com/mavi_travertin"
+                target="_blank"
+                class="clink"
+              >
+                <div
+                  class="clink-icon"
+                  style="background: rgba(218, 120, 89, 0.12)"
+                >
+                  📸
+                </div>
+                <div class="clink-body">
+                  <strong>@mavi_travertin</strong>
+                  <span>Instagram — rasmlar va yangiliklar</span>
+                            </div>
+                        </a>
+
+                        <!-- TELEGRAM KANAL -->
+                        <a href="https://t.me/mavi_travertin_kanal" target="_blank" class="clink">
+                            <div class="clink-icon" style="background: rgba(14, 165, 233, 0.1)">
+                                📢
+                            </div>
+                            <div class="clink-body">
+                                <strong>Telegram Kanal</strong>
+                                <span>Yangiliklar, aksiyalar va narxlar</span>
+                            </div>
+                        </a>
+
+                        <!-- TELEGRAM LIC -->
+                        <a href="https://t.me/TravertinZavod" target="_blank" class="clink">
+                            <div class="clink-icon" style="background: rgba(14, 165, 233, 0.1)">
+                                💬
+                            </div>
+                            <div class="clink-body">
+                                <strong>Telegram LIC</strong>
+                                <span>To'g'ridan-to'g'ri murojaat</span>
+                            </div>
+                        </a>
+
+                        <!-- MANZIL -->
+                        <a target="_blank" class="clink">
+                            <div class="clink-icon" style="background: rgba(139, 115, 85, 0.12)">
+                                📍
+                            </div>
+                            <div class="clink-body">
+                                <strong>Namangan tuman, Sho'rqo'rg'on</strong>
+                                <span>Yandex Maps orqali ko'rish</span>
+                            </div>
+                            <div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/org/mavi_travertin/162589782314/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Mavi Travertin</a><a href="https://yandex.uz/maps/105809/namangan-province/category/building_mixes/184107757/?utm_medium=mapframe&utm_source=maps"
+                                    style="color:#eee;font-size:12px;position:absolute;top:14px;">Qurilish aralashmalari  Namangan viloyatida</a><a href="https://yandex.uz/maps/105809/namangan-province/category/industrial_enterprise/184106880/?utm_medium=mapframe&utm_source=maps"
+                                    style="color:#eee;font-size:12px;position:absolute;top:28px;">Ishlab chiqarish korxonasi  Namangan viloyatida</a><iframe src="https://yandex.uz/map-widget/v1/?ll=71.737539%2C40.928573&mode=poi&poi%5Bpoint%5D=71.734208%2C40.931486&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D162589782314&tab=features&z=16.03"
+                                    width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- XABAR YUBORISH FORMASI -->
+                <div class="contact-form-box">
+                    <div class="form-title-box">📨 Xabar yuborish</div>
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Ismingiz *</label>
+                                <input type="text" class="form-input" name="name" placeholder="To'liq ismingiz" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Telefon *</label>
+                                <input type="tel" class="form-input" name="phone" placeholder="+998 XX XXX XX XX" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email (ixtiyoriy)</label>
+                            <input type="email" class="form-input" name="email" placeholder="sizning@email.com" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Xabaringiz *</label>
+                            <textarea class="form-textarea" name="message" placeholder="Mahsulot, narx yoki boshqa savol..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="formSubmitBtn">
+                <span>Xabar yuborish</span>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </button>
+                        <div class="form-success" id="formSuccess">
+                            ✅ Xabaringiz yuborildi! Tez orada bog'lanamiz.
+                        </div>
+                        <div class="form-error" id="formError">
+                            ❌ Xatolik. Qaytadan urinib ko'ring.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YANDEX XARITA -->
+    <div class="map-section">
+        <div style="position: relative; overflow: hidden">
+            <a href="https://yandex.uz/maps/org/mavi_travertin/162589782314/?utm_medium=mapframe&utm_source=maps" style="color: #eee; font-size: 12px; position: absolute; top: 0px">Mavi Travertin</a
+        ><a
+          href="https://yandex.uz/maps/105809/namangan-province/category/building_mixes/184107757/?utm_medium=mapframe&utm_source=maps"
+          style="color: #eee; font-size: 12px; position: absolute; top: 14px"
+          >Qurilish aralashmalari Namangan viloyatida</a
+        ><a
+          href="https://yandex.uz/maps/105809/namangan-province/category/industrial_enterprise/184106880/?utm_medium=mapframe&utm_source=maps"
+          style="color: #eee; font-size: 12px; position: absolute; top: 28px"
+          >Ishlab chiqarish korxonasi Namangan viloyatida</a
+        ><iframe
+          src="https://yandex.uz/map-widget/v1/org/mavi_travertin/162589782314/?ll=71.738121%2C40.931475&z=15"
+          width="560"
+          height="400"
+          frameborder="1"
+          allowfullscreen="true"
+          style="position: relative"
+        ></iframe>
+      </div>
+      
+     
+    </div>
+
+    <div id="site-footer"></div>
+    <script src="js/products.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

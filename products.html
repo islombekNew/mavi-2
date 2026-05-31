@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <title>Mahsulotlar — Mavi Travertin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .prod-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        
+        @media(max-width:1100px) {
+            .prod-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media(max-width:750px) {
+            .prod-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+        
+        @media(max-width:420px) {
+            .prod-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-header" data-page="products.html"></div>
+
+    <div class="page-hero">
+        <div class="container">
+            <div class="page-hero-tag">Mahsulotlar</div>
+            <h1 class="page-hero-title">BARCHA <span>MAHSULOTLAR</span></h1>
+            <p class="page-hero-sub">20 ta premium mahsulot — Travertin, Astar, Kley, Shpaklovka, Kraska va boshqalar</p>
+        </div>
+    </div>
+
+    <section class="section" style="background:var(--dark);">
+        <div class="container">
+            <div class="shop-filters">
+                <button class="filter-btn active" onclick="filterProds(this,'all')">Hammasi</button>
+                <button class="filter-btn" onclick="filterProds(this,'travertin')">Travertin</button>
+                <button class="filter-btn" onclick="filterProds(this,'astar')">Astar</button>
+                <button class="filter-btn" onclick="filterProds(this,'rodban')">Rodban</button>
+                <button class="filter-btn" onclick="filterProds(this,'kley')">Kley</button>
+                <button class="filter-btn" onclick="filterProds(this,'shpaklovka')">Shpaklovka</button>
+                <button class="filter-btn" onclick="filterProds(this,'vodaemulsiya')">Vodaemulsiya</button>
+                <button class="filter-btn" onclick="filterProds(this,'otachento')">Otachento</button>
+                <button class="filter-btn" onclick="filterProds(this,'kraska')">Kraska</button>
+            </div>
+            <div class="prod-grid" id="prodGrid"></div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <!-- ORDER MODAL -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeOrderModal()">✕</button>
+            <h3 class="modal-title">BUYURTMA</h3>
+            <p class="modal-product" id="modalProductName"></p>
+            <div style="background:var(--light);border-radius:10px;padding:14px;margin-bottom:14px;">
+                <div style="font-size:11px;font-weight:700;color:var(--sand);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Miqdorni belgilang</div>
+                <div class="modal-qty-row">
+                    <button type="button" class="qty-btn" onclick="changeQty(-1)">−</button>
+                    <input type="number" class="qty-input" id="qtyInput" value="1" min="1" oninput="updateTotal()" />
+                    <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
+                    <span class="qty-unit" id="qtyUnit">kg</span>
+                </div>
+                <div class="qty-total-row"><span class="qty-total-label">Jami:</span><span class="qty-total-price" id="totalPrice">—</span></div>
+            </div>
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label dark">Ismingiz <span class="req">*</span></label><input type="text" class="form-input light" name="name" placeholder="To'liq ismingiz" required/></div>
+                    <div class="form-group"><label class="form-label dark">Telefon <span class="req">*</span></label><input type="tel" class="form-input light" name="phone" placeholder="+998 XX XXX XX XX" required/></div>
+                </div>
+                <div class="form-group"><label class="form-label dark">Izoh / Manzil</label><textarea class="form-textarea light" name="note" placeholder="Yetkazib berish manzili..." style="min-height:65px;"></textarea></div>
+                <div class="modal-btns">
+                    <button type="button" class="btn-cancel" onclick="closeOrderModal()">Bekor</button>
+                    <button type="submit" class="btn-primary">✓ Buyurtma berish</button>
+                </div>
+                <div class="form-success" id="orderSuccess">✅ Buyurtma qabul qilindi! Tez orada bog'lanamiz.</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let _currentCat = 'all';
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProdGrid();
+        });
+
+        function renderProdGrid() {
+            const grid = document.getElementById('prodGrid');
+            const list = _currentCat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === _currentCat);
+            grid.innerHTML = list.map(p => prodCardHtml(p)).join('');
+            setTimeout(initReveal, 30);
+        }
+
+        function filterProds(btn, cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            _currentCat = cat;
+            renderProdGrid();
+        }
+    </script>
+</body>
+
+</html>
