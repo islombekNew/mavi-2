@@ -35,7 +35,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 /* ============================================================
    SOZLAMALAR
@@ -45,7 +45,7 @@ const CFG = {
     adminPass: process.env.ADMIN_PASS || 'mavi26',
     jwtSecret: process.env.JWT_SECRET || crypto.randomBytes(48).toString('hex'),
     tokenTTL: 8 * 60 * 60 * 1000, // 8 soat
-    origins: (process.env.ALLOWED_ORIGINS || 'http://localhost:3000')
+    origins: (process.env.ALLOWED_ORIGINS || 'http://localhost:8080')
         .split(',').map(s => s.trim()),
 };
 
@@ -112,8 +112,10 @@ function rateLimit(max, windowMs, msg) {
         const key = (req.ip || 'unknown') + req.path;
         const now = Date.now();
         const r = _limits.get(key) || { n: 0, t: now };
-        if (now - r.t > windowMs) { r.n = 0;
-            r.t = now; }
+        if (now - r.t > windowMs) {
+            r.n = 0;
+            r.t = now;
+        }
         r.n++;
         _limits.set(key, r);
         if (r.n > max) {
