@@ -200,7 +200,7 @@ function prodCardHtml(p) {
       ${
         p.price2
           ? `<div style="font-size:11px;color:rgba(245,240,235,0.3);margin-top:2px;">
-        Shot: <span style="color:rgba(218,120,89,0.7);">${esc(p.price2)}</span> so'm
+        Hisob raqam: <span style="color:rgba(218,120,89,0.7);">${esc(p.price2)}</span> so'm
       </div>`
           : ""
       }
@@ -239,7 +239,7 @@ function shopCardHtml(p) {
       ${
         p.price2
           ? `<div style="font-size:11px;color:var(--sand);margin-bottom:10px;">
-        Shot: <strong style="color:var(--rust-deep);">${esc(p.price2)}</strong> so'm
+        Hisob raqam: <strong style="color:var(--rust-deep);">${esc(p.price2)}</strong> so'm
       </div>`
           : '<div style="margin-bottom:10px;"></div>'
       }

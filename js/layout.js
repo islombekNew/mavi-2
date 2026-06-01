@@ -74,7 +74,7 @@ function getFooterHTML() {
           <a href="tel:${PHONE2}">📞 ${PHONE2_DISPLAY}</a>
           <a href="https://www.instagram.com/mavi__zavod?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">📸 Instagram</a>
           <a href="https://t.me/grandmixx" target="_blank">📢 Telegram Kanal</a>
-          <a href="https://t.me/mavi_travertin" target="_blank">💬 Telegram LIC</a>
+          <a href="https://t.me/TravertinZavod" target="_blank">💬 Telegram LIC</a>
           <a href="https://yandex.uz/maps/?text=${encodeURIComponent(ADDRESS)}" target="_blank">📍 Yandex Maps</a>
         </div>
       </div>
